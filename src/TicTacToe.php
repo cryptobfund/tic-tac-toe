@@ -2,9 +2,6 @@
 
 namespace Tic\Tac\Toe;
 
-//use Tic\Tac\Toe\strategies\Easy;
-use Tic\Tac\Toe\strategies\Normal;
-
 class TicTacToe
 {
     // BEGIN (write your solution here)
