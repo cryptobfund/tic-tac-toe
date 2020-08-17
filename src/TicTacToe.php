@@ -2,25 +2,20 @@
 
 namespace Tic\Tac\Toe;
 
-use Tic\Tac\Toe\strategies\Easy;
+//use Tic\Tac\Toe\strategies\Easy;
 use Tic\Tac\Toe\strategies\Normal;
 
 class TicTacToe
 {
     // BEGIN (write your solution here)
+    const NAME_SPACE = "Tic\\Tac\\Toe\\strategies\\";
     private $strategy;
     private array $table;
 
-    public function __construct($strategyName = null)
+    public function __construct($strategyName = 'easy')
     {
-        $mapping = [
-            'easy' => fn() => new Easy(),
-            'normal' => fn() => new Normal()
-        ];
-        if (!isset($strategyName)) {
-            $strategyName = 'easy';
-        }
-        $this->strategy = $mapping[$strategyName]();
+        $class = $this::NAME_SPACE . ucfirst($strategyName);
+        $this->strategy = new $class;
 
         $table = [];
         for ($i = 0; $i < 3; $i++) {
